@@ -5,9 +5,7 @@ import Movie from './components/Movie';
 const APIKEY =  '04c35731a5ee918f014970082a0088b1';
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${APIKEY}&page=1`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${APIKEY}&query=`;
-const API_URL = 'https://api.themoviedb.org/3/';
-const imgURL = 'https://image.tmdb.org/t/p/w300';
-const apiurl = 'https://api.themoviedb.org/3';
+
 
 
 function App() {
@@ -61,7 +59,8 @@ function App() {
       <div className="movie-container">
         
         {movies.length > 0 && movies.map((movie) =>
-          <Movie  {...movie} key={movie.id}/>
+           movie.poster_path ?
+            <Movie  {...movie} key={movie.id}/> : "" 
         )}
       </div>
     </>
